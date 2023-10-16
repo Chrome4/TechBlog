@@ -2,11 +2,11 @@
 
 # Description
 
-This is a calender app.
+This is a techblog app.
 
 ## Usage
 
-Open index.js with live server!
+Create an account if you dont have one and loging to view post and comments!
 
 ## Link
 
