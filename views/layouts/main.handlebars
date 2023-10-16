@@ -1,0 +1,34 @@
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tech Blog</title>
+    <!-- Any common CSS links -->
+    <link rel="stylesheet" href="../../public/styles.css" />
+  </head>
+
+  <body>
+
+    <header>
+      <nav>
+        <a href="/">Homepage</a>
+        {{#if logged_in}}
+          <a href="/dashboard">Dashboard</a>
+          <a href="/logout">Logout</a>
+        {{else}}
+          <a href="/login">Login</a>
+        {{/if}}
+      </nav>
+    </header>
+
+    {{{body}}}
+
+    <footer>
+
+      <p>&copy; 2023 Tech Blog</p>
+    </footer>
+
+  </body>
+
+</html>
