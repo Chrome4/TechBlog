@@ -1,4 +1,4 @@
-// Auth code from exercise 23
+
 
 const withAuth = (req, res, next) => {
   if (!req.session.logged_in) {

@@ -3,44 +3,42 @@ const { User, BlogPost, Comment } = require("../models");
 
 const userData = [
   {
-    username: "YoFavHomie",
-    password: "password123",
+    username: "test123",
+    password: "password!",
   },
   {
-    username: "GoBucks",
-    password: "passwordIsTaco",
+    username: "test321",
+    password: "password123",
   },
 ];
 
-const postSeedData = [
+const poSeedData = [
   {
-    title: "Why Pierre Gasly is underated",
-    description:
-      "Gasly is proving Alpine mad the right decision to bring on the French driver...",
+    title: "The rumors of the one eye man",
+    description: "Is he knocking on your door?",
     user_id: 1,
   },
   {
-    title: "Norris to Redbull?",
-    description:
-      "Amid the resurgence of Mclaren, rumors of Lando Norris moving to Redbull with Max Verstappen...",
+    title: "The sky is falling",
+    description: "Chicken little might be of some use.",
     user_id: 2,
   },
 ];
 
-const commentSeedData = [
+const commSeedData = [
   {
-    comment_text: "Great post!",
+    comment_text: "I think I heard him last night",
     user_id: 2,
     post_id: 1,
   },
   {
-    comment_text: "That is crazy!",
+    comment_text: "Oh no we are all doomed!",
     user_id: 1,
     post_id: 2,
   },
 ];
 
-const seedDatabase = async () => {
+const seedDataBase = async () => {
   await sequelize.sync({ force: true });
 
   await User.bulkCreate(userData, {
@@ -48,11 +46,11 @@ const seedDatabase = async () => {
     returning: true,
   });
 
-  await BlogPost.bulkCreate(postSeedData);
+  await BlogPost.bulkCreate(poSeedData);
 
-  await Comment.bulkCreate(commentSeedData);
+  await Comment.bulkCreate(commSeedData);
 
   process.exit(0);
 };
 
-seedDatabase();
+seedDataBase();

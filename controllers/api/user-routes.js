@@ -2,9 +2,7 @@ const router = require("express").Router();
 const { User } = require("../../models");
 const bcrypt = require("bcrypt");
 
-// User registration route
 router.post("/signup", async (req, res) => {
-  // Check if password and confirmPassword match
   if (req.body.password !== req.body.confirmPassword) {
     return res.status(400).json({ message: "Passwords do not match!" });
   }
@@ -23,7 +21,6 @@ router.post("/signup", async (req, res) => {
   }
 });
 
-// User login route
 router.post("/login", async (req, res) => {
   try {
     const userData = await User.findOne({
@@ -50,7 +47,6 @@ router.post("/login", async (req, res) => {
       req.session.user_id = userData.id;
       req.session.logged_in = true;
 
-      // Redirect to dashboard after successful login
       res.redirect("/dashboard");
     });
   } catch (err) {
@@ -58,7 +54,6 @@ router.post("/login", async (req, res) => {
   }
 });
 
-// User logout route
 router.post("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {

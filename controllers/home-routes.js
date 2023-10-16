@@ -98,7 +98,7 @@ router.get("/signup", (req, res) => {
 router.all("/login", (req, res) => {
   req.session.logged_in ? res.redirect("/dashboard") : res.render("login");
 });
-// User logout route
+
 router.get("/logout", (req, res) => {
   if (req.session.logged_in) {
     req.session.destroy(() => {
